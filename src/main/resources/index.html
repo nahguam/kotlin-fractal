@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fractal</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css">
+  <style>
+    #map {
+      width: 10%;
+      height: 10%;
+      position: absolute;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js"></script>
+</head>
+<body>
+<div id="map" class="map"></div>
+<!--https://openlayers.org/en/latest/examples/lazy-source.html?q=select-->
+<script>
+  var map = new ol.Map({
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.XYZ({
+          url: '/tile/{z}/{x}/{y}.png'
+        })
+      })
+    ],
+    target: 'map',
+    view: new ol.View({
+      center: [0, 0],
+      zoom: 0
+    })
+  });
+</script>
+</body>
+</html>
